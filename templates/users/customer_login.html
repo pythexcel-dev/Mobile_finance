@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+  Customer
+{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-md-6">
+     <img src="{% static 'img/financial-management.jpg' %}" class="img-fluid" style="margin-top: 50px;">
+  </div>
+  <div class="col-md-6">
+    <div class="rounded d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-10 col-sm-12 shadow-lg p-3 bg-white">
+        <div class="container text-center">
+          <h3 class="text-primary">Customer</h3>
+        </div>
+        <form action="{% url 'home' %}">
+          <div class="p-4">
+            <label><b>Email</b></label>
+            <div class="input-group mb-3">
+              <span class="input-group-text bg-primary"><i class="bi bi-person-plus-fill text-white"></i></span> 
+              <input type="text" class="form-control" placeholder="Enter email">
+            </div>
+            <label><b>Password</b></label>
+            <div class="input-group mb-3">
+              <span class="input-group-text bg-primary"><i class="bi bi-key-fill text-white"></i></span>
+              <input type="password" class="form-control" placeholder="Enter password">
+            </div>
+            <div style="height: 10px;"></div>
+            <div class="form-row">
+              <div class="left-btn" style="float: left;">
+                <input type="submit" value="Log in" class="btn btn-primary">
+              </div>
+              <div class="right-btn" style="float: right;">
+                <input type="button" value="Retailer Login" class="btn btn-primary" onclick="location.href='{% url 'admin:index' %}';">
+              </div>
+              <div style="height: 30px;"></div>
+            </div> 
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<footer style="margin-top: 62px;">
+  <center><p>&copy; 2023 Mobile Finance Management. All rights reserved.</p></center>
+</footer>
+{% endblock %}

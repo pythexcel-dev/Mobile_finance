@@ -1,18 +1,14 @@
 from django.shortcuts import render
-from .models import Member
-  
- 
+from django.contrib import messages
+from django.shortcuts import redirect
+from django.contrib.auth.views import LogoutView
+
+
+#class AdminLogoutView(LogoutView):
+#    template_name = 'admin/login.html'
+
+def customer(request):
+  return render(request, "users/customer_login.html")
+
 def home(request):
-    mymembers = Member.objects.all().values()
-    context = {
-        'mymembers': mymembers,
-    }
-    return render(request, "home.html", context)
-
-
-def details(request, id):
-  mymember = Member.objects.get(id=id)
-  context = {
-    'mymember': mymember,
-  }
-  return render(request, "details.html", context)
+  return render(request, "users/home.html")
